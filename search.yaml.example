@@ -1,0 +1,69 @@
+# Copy to search.yaml. Never commit API keys; use the environment variables
+# named below. A missing search.yaml enables the four keyless public sources.
+queries:
+  - software engineer
+  - data engineer
+locations:
+  - Remote
+  - Istanbul
+max_age_days: 30
+per_source_limit: 25
+max_pages: 2
+
+enabled_sources:
+  - remotive
+  - arbeitnow
+  - remoteok
+  - himalayas
+  # API credentials required: ADZUNA_APP_ID + ADZUNA_APP_KEY, JOOBLE_API_KEY
+  # - adzuna
+  # - jooble
+  # Company board identifiers required below:
+  # - greenhouse
+  # - lever
+  # - ashby
+  # Optional Bun runtime required for these vendored portal CLIs:
+  # - linkedin
+  # - freehire
+  # - jobnet
+  # - jobindex
+  # - jobbank
+  # - jobdanmark
+  # Legacy Playwright source:
+  # - salto
+
+sources:
+  adzuna:
+    countries: [gb, de, nl]
+  jooble:
+    # Jooble keys are regional. Change both domain and JOOBLE_API_KEY together.
+    domain: jooble.org
+  himalayas:
+    # Optional HIMALAYAS_API_KEY raises the public rate limit.
+    api_key: ""
+  linkedin:
+    # LinkedIn public-page automation is for low-volume personal use and may
+    # conflict with LinkedIn's terms. Keep limits conservative.
+    timeout: 30
+  freehire:
+    extra_args: [--remote, remote]
+  jobnet:
+    extra_args: [--order, PublicationDate]
+  jobindex:
+    extra_args: [--sort, date]
+
+ats:
+  greenhouse:
+    # Token is the final segment of boards.greenhouse.io/<token>.
+    - token: example-company
+      company: Example Company
+  lever:
+    # Site is the final segment of jobs.lever.co/<site>; set region: eu for
+    # jobs.eu.lever.co boards.
+    - site: example-company
+      company: Example Company
+      region: global
+  ashby:
+    # Name is the final segment of jobs.ashbyhq.com/<name>.
+    - name: ExampleCompany
+      company: Example Company

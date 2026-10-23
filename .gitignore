@@ -1,0 +1,27 @@
+# secrets & session state
+.env
+salto_session.json
+profile.md
+
+# runtime artifacts
+state.db
+screenshots/
+logs/
+learned_answers.md
+run.lock
+
+# personal backups / archives that should never be tracked
+salto_assets2/
+salto-copy.zip
+*.zip
+
+# python
+venv/
+__pycache__/
+*.pyc
+
+# job-search configuration and generated personal documents
+search.yaml
+applications/
+.venv/
+.pytest_cache/

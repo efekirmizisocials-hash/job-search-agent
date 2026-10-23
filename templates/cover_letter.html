@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ identity.name }} — Cover letter</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #17202a; font: 10.5pt/1.48 Arial, Helvetica, sans-serif; }
+    header { margin-bottom: 13mm; }
+    h1 { margin: 0 0 2mm; font-size: 18pt; line-height: 1.1; }
+    .contact { font-size: 9.5pt; }
+    .recipient { margin-bottom: 8mm; }
+    p { margin: 0 0 4mm; }
+    .closing { margin-top: 8mm; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ identity.name }}</h1>
+    <div class="contact">{{ identity.email }} · {{ identity.phone }}{% if identity.location %} · {{ identity.location }}{% endif %}</div>
+  </header>
+  <div class="recipient">
+    <strong>{{ job.company }}</strong><br>
+    Re: {{ job.title }}
+  </div>
+  <p>Dear Hiring Team,</p>
+  {% for paragraph in draft.cover_letter.paragraphs %}<p>{{ paragraph.text }}</p>{% endfor %}
+  <p class="closing">Sincerely,<br>{{ identity.name }}</p>
+</body>
+</html>

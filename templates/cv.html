@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ identity.name }} — CV</title>
+  <style>
+    @page { size: A4; margin: 14mm 16mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #17202a; font: 10pt/1.32 Arial, Helvetica, sans-serif; }
+    h1 { margin: 0 0 2mm; font-size: 21pt; line-height: 1.1; }
+    h2 { margin: 4mm 0 1.5mm; border-bottom: 0.4pt solid #8492a6; font-size: 11pt; letter-spacing: 0.04em; text-transform: uppercase; }
+    p { margin: 0 0 2mm; }
+    ul { margin: 1mm 0 2mm 5mm; padding-left: 4mm; }
+    li { margin: 0 0 0.8mm; }
+    .contact { margin-bottom: 3mm; font-size: 9pt; }
+    .entry { break-inside: avoid; margin-bottom: 2.5mm; }
+    .entry-head { font-weight: bold; }
+    .dates { white-space: nowrap; font-weight: normal; }
+    .subhead { font-style: italic; }
+    .skills { margin: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ identity.name }}</h1>
+    <div class="contact">{{ identity.email }} · {{ identity.phone }}{% if identity.location %} · {{ identity.location }}{% endif %}</div>
+  </header>
+
+  <section aria-label="Profile">
+    <h2>Profile</h2>
+    <p>{{ draft.profile_statement.text }}</p>
+  </section>
+
+  {% if draft.experience %}
+  <section aria-label="Experience">
+    <h2>Experience</h2>
+    {% for entry in draft.experience %}
+    <article class="entry">
+      <div class="entry-head"><span>{{ entry.role.text }}</span><span class="dates"> — {{ entry.dates.text }}</span></div>
+      <div class="subhead">{{ entry.company.text }}</div>
+      {% if entry.bullets %}<ul>{% for bullet in entry.bullets %}<li>{{ bullet.text }}</li>{% endfor %}</ul>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if draft.education %}
+  <section aria-label="Education">
+    <h2>Education</h2>
+    {% for entry in draft.education %}
+    <article class="entry">
+      <div class="entry-head"><span>{{ entry.title.text }}</span><span class="dates"> — {{ entry.dates.text }}</span></div>
+      <div class="subhead">{{ entry.institution.text }}</div>
+      {% if entry.details %}<ul>{% for detail in entry.details %}<li>{{ detail.text }}</li>{% endfor %}</ul>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if draft.skills %}
+  <section aria-label="Skills">
+    <h2>Skills</h2>
+    <p class="skills">{% for skill in draft.skills %}{{ skill.text }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  </section>
+  {% endif %}
+</body>
+</html>

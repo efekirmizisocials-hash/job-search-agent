@@ -1,0 +1,8 @@
+{
+  "linkedin": {"id": "4426311357", "title": "Software Engineer", "company": "Acme", "location": "Istanbul", "date": "2026-10-20", "url": "https://www.linkedin.com/jobs/view/4426311357", "description": "Build useful software."},
+  "freehire": {"id": "backend-acme-abc", "title": "Backend Engineer", "company": "Acme", "location": "Remote", "date": "2026-10-20", "url": "https://freehire.me/jobs/backend-acme-abc", "work_mode": "remote", "description": "<p>Build APIs.</p>", "salary": "USD 100000–130000/year"},
+  "jobnet": {"id": "b07c49a1", "title": "Data Engineer", "company": "Example A/S", "location": "Aarhus", "date": "2026-10-19", "deadline": "2026-11-10", "url": "https://jobnet.dk/find-job/b07c49a1", "applyUrl": "https://ats.example/jobs/1"},
+  "jobindex": {"id": "h1647303", "title": "Data Engineer", "company": "Gavefabrikken", "location": "Valby", "date": "2026-10-18", "deadline": "2026-11-01", "url": "https://www.jobindex.dk/jobannonce/h1647303"},
+  "jobbank": {"id": "123456", "title": "Research Engineer", "company": "DTU", "location": "Lyngby", "date": "2026-10-17", "deadline": "2026-11-15", "url": "https://jobbank.dk/job/123456/", "description": "<p>Research systems.</p>"},
+  "jobdanmark": {"id": "softwareudvikler-acme", "title": "Softwareudvikler", "company": "Acme ApS", "location": "Odense", "date": "2026-10-16", "deadline": "2026-11-12", "url": "https://jobdanmark.dk/job/softwareudvikler-acme"}
+}
